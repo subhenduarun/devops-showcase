@@ -3,7 +3,7 @@ name: CI/CD Pipeline for DevOps Showcase
 on:
   push:
     branches:
-      - master  # change to 'main' if that's your default branch
+      - master  # change to 'main' if that's your default branc
 
 jobs:
   build-and-push:
