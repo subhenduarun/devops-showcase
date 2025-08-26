@@ -8,20 +8,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-     name: Build and Push Docker Image
-
-on:
-  push:
-    branches:
-      - master   # or main, depending on your branch name
-
-jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -39,11 +25,9 @@ jobs:
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/devops-showcase:latest
 
-
-
-      - name: Build and push Docker image
+      - name: Build and push Docker image (alternative method)
         uses: docker/build-push-action@v4
         with:
           context: .
-          push: false
+          push: false   # change to true when ready to push
           tags: subhendu083/devops-showcase:latest
